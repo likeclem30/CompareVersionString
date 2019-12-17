@@ -7,7 +7,7 @@ def padStringZero(versionstr, length, padding):
 # -1 if version1 is smaller,, 
 # 0 if equal 
 
-def compareVersion(version1:str, version2:str)->int:
+def compareVersion(version1:str, version2:str):
     """Compare two version strings with '.' delimeter """
 
     # This will split both the versions by '.' 
@@ -19,9 +19,11 @@ def compareVersion(version1:str, version2:str)->int:
     
     #padding version string. i.e '1.2' same as '1.2.0'
     if checkEqualLength != 0:
+
+        maxlength = max(len(version1),len(version2))
         
-        version1 = padStringZero(version1,checkEqualLength,'0') 
-        version2 = padStringZero(version2,checkEqualLength,'0') 
+        version1 = padStringZero(version1,maxlength,'0') 
+        version2 = padStringZero(version2,maxlength,'0') 
                                            
     for i in range(len(version1)):
         
